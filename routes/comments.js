@@ -14,9 +14,6 @@ router.get("/new",middleware.isLoggedIn, function(req, res){
         if(err){
             console.log(err);
         }else{
-            console.log("+ 12 ");
-
-            console.log("+ 12 " + req.params.id);
             res.render("comments/new",{campground: campground, currentUser: req.user});
         }
     })
