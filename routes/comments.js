@@ -9,10 +9,14 @@ var middleware = require("../middleware");
 // ===============
 
 router.get("/new",middleware.isLoggedIn, function(req, res){
+    
     Campground.findById(req.params.id, function(err, campground){
         if(err){
             console.log(err);
         }else{
+            console.log("+ 12 ");
+
+            console.log("+ 12 " + req.params.id);
             res.render("comments/new",{campground: campground, currentUser: req.user});
         }
     })
